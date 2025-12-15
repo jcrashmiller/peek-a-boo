@@ -32,9 +32,9 @@ Quickly preview any supported file in Linux without opening its main app for edi
 ## To Do
 
 - Add support for further file types
--- Audio
--- Video
--- Images
--- Documents
--- Presentations
+    - Audio
+    - Video
+    - Images
+    - Documents
+    - Presentations
 - Add helper script to set up file browser and keyboard shortcut integration
