@@ -1,40 +1,64 @@
 # Peek-A-Boo
 
-Quickly preview any supported file in Linux without opening its main app for editing.
+Fast, lightweight file previews on Linux — without launching full editing applications.
 
-## In Development
+Peek-A-Boo is designed for quick inspection of files directly from the terminal or file manager, making it easy to “peek” at contents and move on without breaking flow.
 
-## Requirements
-- feh
-- libreoffice
+Peek-A-Boo started as a way to avoid waiting for full applications to load when all I needed was a quick glance.
 
 ## Screenshots
 
 ![Peek-A-Boo spreadsheet called from terminal](assets/images/screenshots/spreadsheet_preview_from_commandline.png)
 
+## How it works (high level)
 
-## Quick Start
-
-1. Install dependencies: `./scripts/install_dependencies.sh`
-2. Run: `python3 peekaboo_thumbnail_with_cache.py`
-3. Register keyboard shortcut to call script with highlighted file as argument.
+1. A file path is passed to Peek-A-Boo (via terminal command or keyboard shortcut)
+2. Peek-A-Boo generates a lightweight preview instead of loading the entire file
+3. The preview is displayed using simple, see-what-you-need tooling
+4. Generated previews are cached to enable near-instant repeat viewing
 
 ## Features
 
-- Caching - Any file previewed within the past 30 minutes will show near instantly.
-- Fast - Generates preview of part of the file rather than the whole thing.
+- Fast previews without opening full applications
+- Partial rendering to minimize startup time
+- Preview caching for near-instant repeat access
+- Designed for terminal and keyboard-driven workflows
 
 ## Supported File Types
 
-- Spreadsheets
+- Spreadsheets (initial support)
 
+## Caching Behavior
 
-## To Do
+- Previews are cached for 30 minutes by default
+- Cached previews are reused if the source file has not changed
+- Cached previews display almost instantly
+- Cache duration is configurable
 
-- Add support for further file types
+## Quick Start
+
+1. Install dependencies:
+   ```
+   ./scripts/install_dependencies.sh
+   ```
+2. Run Peek-A-Boo:
+   ```
+   python3 peekaboo_thumbnail_with_cache.py <file>
+   ```
+3. Optionally bind the script to a keyboard shortcut or file manager action
+
+## Requirements
+
+- feh
+- libreoffice
+
+## Roadmap / In Development
+
+- Add support for additional file types:
     - Audio
     - Video
     - Images
     - Documents
     - Presentations
-- Add helper script to set up file browser and keyboard shortcut integration
+- Helper script for file manager and keyboard shortcut integration
+
